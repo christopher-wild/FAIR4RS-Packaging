@@ -11,7 +11,7 @@
 carpentry: 'incubator'
 
 # Overall title for pages.
-title: 'FAIR4RS Tools for Reproducibility: Packaging`
+title: 'FAIR4RS Tools for Reproducibility: Packaging'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2024-04-02'
@@ -58,17 +58,17 @@ contact: 'rse@sheffield.ac.uk'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
 - introduction.md
 
 # Information for Learners
-learners: 
+learners:
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
