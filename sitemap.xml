@@ -1,45 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/404.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/404.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/CODE_OF_CONDUCT.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/LICENSE.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/index.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/aio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/404.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/images.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/LICENSE.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/404.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/index.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/introduction.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/profiles.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/aio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/reference.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/images.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/introduction.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/profiles.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/reference.html</loc>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://christopher-wild.github.io/FAIR4RS-Packaging/reference.html</loc>
   </url>
 </urlset>
