@@ -26,69 +26,25 @@ In this episode we are going to look at what turns your project of python code i
 Throughout Pythons development there have been many different ways of doing this, we will aim to explore some of these. 
 This is to both build an understanding of why the current standard is what it is and to have some context if you ever come across the other methods when looking at other projects.
 
+::: callout
+## What Python packaging files exist?
 
+1. requirements.txt
+2. setup.py
+3. setup.cfg
+4. pyproject.toml
 
-::: instructor
-Inline instructor notes can help inform instructors of timing challenges associated with the
-lessons. They appear in the "Instructor View"
 :::
 
-::: challenge
-## Challenge 1: Can you do it?
+## Requirements.txt
 
-What is the output of this command?
+A requirements.txt is a text file where each line represents a package or library that your project depends on. A package managing tool like PIP can use this file to install all the necessary dependancies. 
 
-``` r
-paste("This", "new", "lesson", "looks", "good")
+While a requirements.txt file isn't normally directly used for packaging, its a simple and common filetype that offers some of the features that the packaging files do.
+
+```
+requests==2.26.0
+numpy>=1.21.0
+matplotlib<4.0
 ```
 
-::: solution
-## Output
-
-``` output
-[1] "This new lesson looks good"
-```
-:::
-
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-::: solution
-You can add a line with at least three colons and a `solution` tag.
-:::
-:::
-
-## Figures
-
-You can include figures generated from R Markdown:
-
-```{r pyramid, fig.alt = "pie chart illusion of a pyramid", fig.cap = "Sun arise each and every morning"}
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
-
-Or you can use pandoc markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}`
-
-![Blue Carpentries hex person logo with no
-text.](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg)
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create dynamic reports with
-{knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
-
-::: keypoints
--   Use `.md` files for episodes when you want static content
--   Use `.Rmd` files for episodes when you need to generate output
--   Run `sandpaper::check_lesson()` to identify any issues with your lesson
--   Run `sandpaper::build_lesson()` to preview your lesson locally
-:::
