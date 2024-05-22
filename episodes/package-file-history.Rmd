@@ -38,7 +38,7 @@ This is to both build an understanding of why the current standard is what it is
 
 ## Requirements.txt
 
-A requirements.txt is a text file where each line represents a package or library that your project depends on. A package managing tool like PIP can use this file to install all the necessary dependancies. 
+A `requirements.txt` is a text file where each line represents a package or library that your project depends on. A package managing tool like PIP can use this file to install all the necessary dependencies. 
 
 While a requirements.txt file isn't normally directly used for packaging, its a simple and common filetype that offers some of the features that the packaging files do.
 
@@ -48,3 +48,23 @@ numpy>=1.21.0
 matplotlib<4.0
 ```
 
+## Setup.py
+
+Before the introduction of `pyproject.toml` the main tool supported for installing packages was `setup.py`. As the extension suggests a `setup.py` is a python file where the metadata and logic for building your package are contained. 
+
+::: challenge
+
+### Setup.py problems
+
+Q: Discuss with each other what problems if any you think there may be with using a python file to create python packages
+
+`Hint: Think about the differences between a code file and a text file`
+
+::: solution
+
+1. As `setup.py` is a code file, there is a potential for malicious code to be hidden in them if the file comes from an untrusted source
+2. There is quite a bit of 'boilerplate' in each file
+3. The syntax has to be precise and may be confusing to those not familiar with Python
+
+::::::::::::::::::::::
+:::::::::::::::::::::::::
