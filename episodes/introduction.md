@@ -1,114 +1,159 @@
 ---
-title: "Using Markdown"
+title: "Software Packaging"
 teaching: 10
 exercises: 2
+editor_options: 
+  markdown: 
+    wrap: 100
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+:::::::::::::::::::::::::::::::::::::: questions
+
+- What is software packaging?
+- How is packaging related to reproducibility and the FAIR4RS principles?
+- What does packaging a python project look like?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Recognise the importance of software packaging to ensure  reproducibility.
+- Understand what are the basic building blocks of a Python package.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.txt) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
-
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
-
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
-
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
-
-:::::::::::::::::::::::::::::::::
+One of the most challenging aspects of research is reproducibility. This necessitates the need to ensure that both research data and research software adhere to a set of guidelines that better enable open research practices across all disciplines. The recent adaptation of the original **FAIR** principles (Findable, Accessible, Interoperable, Reusable) means that research software can now also benefit from the same general framework as research data, whilst accounting for their inherent differences, including software versioning, dependency management, writing documentation, and choosing an appropriate license.
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+::::::::::::::::::::::::::::::::::::: discussion
 
-:::::::::::::::::::::::: solution 
+Can you recall a time when you have used someone else's software but encountered difficulties in reproducing their results? What challenges did you face and how did you overcome them?
 
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Figures
+Software packaging is one of the core elements of reproducible research software. In general, `software packaging` encompasses the process of collecting and configuring software components into a format that can be easily deployed on different computing environments.
 
-You can use standard markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
+<figure style="text-align: center;">
+    <img src="fig/package.png" alt="alt text for accessibility purposes" width="300"/>
+    <figcaption><em>A software package is like a box containing all the items you need for a particular activity, neatly packed together to transport to someone else</em>.</figcaption>
+</figure>
 
 ::::::::::::::::::::::::::::::::::::: callout
 
-Callout sections can highlight information.
+Think about what a `package` is in general; you typically have a box of items that you want to post to someone else in the world. But before you post it for others to use, you need to make sure the package has things like: an address label, an instruction manual, and protective material.
 
-They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present "asides": 
-content that is not central to the narrative of the lesson,
-e.g. by providing the answer to a commonly-asked question.
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge 1: Packaging Analogy
+
+Using the analogy in the callout above, provide an example for each package attribute in terms of the software attribute.
+
+
+:::::::::::::::::::::::: solution
+
+## Solution
+
+1. Box of items: The software itself (source code, data, images).
+
+2. Address label: Installation instructions specifying the target system requirements (operating system, hardware compatibility).
+
+3. Instruction manual: User documentation explaining how to use the software effectively.
+
+4. Protective materials: Error handling routines, data validation checks to safeguard the software from misuse or unexpected situations.
+
+:::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+## Overview of Software Packaging
+
+The purpose of a software package is to install (or deploy) some source code in different systems that can be executed by other users. This has important considerations that you, as the developer, will have to take into account, including:
+
+1. **Target Users**: Who are you building this package for? Beginners, experienced users, or a specific domain? This will influence the level of detail needed in the documentation and the complexity of dependencies you include.
+
+2. **Dependencies**: What other Python libraries does your package rely on to function? What about hardware dependencies? Finding the right balance between including everything a user may need and keeping the package lightweight is important.
+
+3. **Testability**: How will users test your package? Consider including unit tests and examples to demonstrate usage and ensure your code functions as expected.
+
+Once you have thought about candidate solutions for these questions, you will be in a strong position to package your project.
+
+### Packaging in Python
+
+The most basic directory structure of a Python package looks something like:
+
+```
+📦 my_project/
+├── 📂 my_package/
+│   └── 📄 __init__.py
+└── 📄 setup.py
+```
+
+where
+
+- 📦 `my_project/` is the root directory of the project.
+- 📂 `my_package/` is the package directory containing the source code.
+- 📄 `__init__.py` is an initialisation script (note; this also lets Python know that there are importable modules in this directory).
+- 📄 `setup.py` is a script for setting up the package, containing basic metadata. Tools such as `setuptools` and `pip` use this script to configure how the package is built, distributed, and installed.
+
+
+::::::::::::::::::::::::::::::::::::: callout
+
+For example, consider the times you have imported a library, such as [numpy](www.numpy.org). The ability to write:
+
+```python
+import numpy
+```
+is primarily enabled by the specific (modular) structuring of the numpy package. This includes presence of the `__init__.py` file, which signals to Python that the directory is a package, allowing to import its content using the `import` statement. The complete `import numpy` statement then means Python searches for the `numpy` package  in its search path (`sys.path`) and loads its contents into the namespace under the name `numpy`.
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Math
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
+::::::::::::::::::::::::::::::::::::: challenge
 
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
+## Challenge 2: Improving your project's packaging
 
-Cool, right?
+The directory structure of the basic Python package shown above is a good starting point, but it can be improved. From what you have learned so far, what other files and folders could you include in your package to provide better organisation, readability, and compatibility?
 
-::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+
+:::::::::::::::::::::::: solution
+
+## Solution
+
+A possible improvement could be to include the following to your package:
+
+```
+📦 my_project/
+├── 📂 my_package/
+│   └── 📄 __init__.py
+├── 📂 tests/
+├── 📄 setup.py
+├── 📄 README.md
+└── 📄 LICENSE
+```
+
+The most obvious way to improve the package structure is to include a series of unit tests in a `tests` directory to demonstrate usage and ensure your code functions as expected. The main benefit of a `README.md` file is to provide essential information and guidance about a project to users, contributors, and maintainers in a concise and easily accessible format. Similarly, the purpose of a `LICENSE.md` file is to specify the licensing terms and conditions under which the package's code and associated assets are made available to others for use, modification, and distribution.
+
+:::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+Although we have touched on the core concepts of packaging in Python, including how to set up one using the `setup.py` file, we still need to learn about how to write the metadata and logic for building a package. The next episode of this course provides a brief overview of the history of Python packaging, and what is required to turn your own project into a package.
+
+::::::::::::::::::::::::::::::::::::: keypoints
+
+- Reproducibility is an integral concept in the FAIR4RS principles. Appropriate software packaging is one way to account for reproducible research software, which involves collecting and configuring software components into a format deployable across different computer systems.
+
+- Software packaging is akin to the packaging a box for shipment. Attributes such as the software source code, installation instructions, user documentation, and test scripts all support to ensure reproducibility.
+
+- The purpose of a software package is to install source code for execution on various systems, with considerations including target users, dependencies, and testability.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[r-markdown]: https://rmarkdown.rstudio.com/
