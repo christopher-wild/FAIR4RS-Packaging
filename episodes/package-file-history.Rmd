@@ -62,9 +62,32 @@ Q: Discuss with each other what problems if any you think there may be with usin
 
 ::: solution
 
+Some potential issues are:
 1. As `setup.py` is a code file, there is a potential for malicious code to be hidden in them if the file comes from an untrusted source
 2. There is quite a bit of 'boilerplate' in each file
 3. The syntax has to be precise and may be confusing to those not familiar with Python
 
 ::::::::::::::::::::::
 :::::::::::::::::::::::::
+
+```python
+from setuptools import setup
+
+setup(
+  name='my_cool_package',
+  version='1.0.0',
+  description='A package to do awesome things',
+  long_description=open('README.md').read(),
+  author='John Doe',
+  author_email='john.doe@example.com',
+  license='MIT',
+  # Look for configuration in a setup.cfg file (optional)
+  setup_cfg=True,
+  # Dependencies can be defined here or in setup.cfg
+  # install_requires=['pandas', 'numpy']
+)
+```
+
+## Setup.cfg
+
+To tackle some of the problems with `setup.py`, another standard file was introduced called `setup.cfg`. 
