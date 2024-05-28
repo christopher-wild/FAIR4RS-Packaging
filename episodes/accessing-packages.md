@@ -1,6 +1,6 @@
 ---
 title: 'Accessing Packages'
-teaching: 10
+teaching: 30
 exercises: 2
 ---
 
@@ -39,7 +39,7 @@ Some of the most popular packages you may have heard of are:
 
 :::
 
-### Python Package Index (PyPI)
+## Python Package Index (PyPI)
 
 The Python Package Index or PyPI is an online repository of Python packages  hosting over 500,000 packages! While there are alternatives such as [conda-forge](https://conda-forge.org), PyPI is by far the most commonly used and likely to have all you need.
 
@@ -52,7 +52,7 @@ Explore [PyPI](https://pypi.org/project/pip/) to get familiar with it, try searc
 :::
 
 ::: callout
-### pip
+## pip
 
 pip (package installer for Python) is the standard tool for installing packages from PyPI. 
 You can think of PyPI being the supermarket full of packages and pip being the delivery van bringing it to your installation.
@@ -65,6 +65,13 @@ You can think of PyPI being the supermarket full of packages and pip being the d
 pip itself is a python package that can be found on [PyPI](https://pypi.org/project/pip/), however it comes preinstalled with most python installations, for example [python.org](https://python.org) and inside virtual environments.
 
 The most common way to use pip is from the command line. At the top of a package page on PyPI will be the example line you need to install the package
+
+```
+py -m pip install numpy
+```
+
+The above will install [numpy](https://pypi.org/project/numpy/) from PyPI, a popular scientific computing package enabling a wide range of mathematical and scientific functions. 
+
 
 ::: challenge
 ### Exercise 2: Create venv and install Numpy
@@ -88,7 +95,7 @@ and activate it with
 
 :::
 
-Step 2: Install Numpy into your new environment using `py -m pip install numpy`
+Step 2: Install Numpy into your new environment
 
 Step 3: Check your results with `py -m pip list`
 
@@ -104,11 +111,6 @@ Check out [this documentation](https://docs.python.org/3/l[PyPI](https://pypi.or
 
 :::
 
-```
-py -m pip install numpy
-```
-
-The above will install [numpy](https://pypi.org/project/numpy/) from PyPI, a popular scientific computing package enabling a wide range of mathematical and scientific functions. 
 
 pip can also be used to install packages from source, this means all the files for the package are on your local computer and pip installs it following the packaging instructions into your local environment ready to use. This is especially handy for packages either not on PyPI or for your own packages you're developing.
 
@@ -126,6 +128,11 @@ Here the `.` means to install your current directory as a Python package. For th
 
 
 
+::: keypoints
+- pip can be used to download and install Python packages
+- PyPI is an online package repository which pip downloads from
+- pip can also install local packages like your own
+:::
 
 
 
