@@ -27,6 +27,8 @@ Due to Pythons popularity as a language, it is quite likely that you won't be th
 Many others have worked on common problems and then shared their solution in the form of a pacakge, which you can conveniently integrate into your own code and use!
 
 ::: callout
+
+### Popular Packages
 Some of the most popular packages you may have heard of are:
 
 - Numpy
@@ -43,8 +45,34 @@ The Python Package Index or PyPI is an online repository of Python packages  hos
 
 
 ::: callout
+### pip
 
 pip (package installer for Python) is the standard tool for installing packages from PyPI. 
-You can think of PyPI being the supermarket full of packages and pip being the delivery van brining it to your installation.
+You can think of PyPI being the supermarket full of packages and pip being the delivery van bringing it to your installation.
 
 :::
+
+
+### Using pip
+
+pip itself is a python package that can be found on [PyPI](https://pypi.org/project/pip/), however it comes preinstalled with most python installations, for example [python.org](https://python.org) and inside virtual environments.
+
+The most common way to use pip is from the command line. At the top of a package page on PyPI will be the example line you need to install the package
+
+::: spoiler
+
+### Virtual Environments
+
+Check out [this documentation](https://docs.python.org/3/l[PyPI](https://pypi.org/project/pip/)ibrary/venv.html) or the FAIR4RS course on virtual environments to learn more!
+
+:::
+
+::: challenge
+
+### Exercise 1: Explore PyPI
+
+Explore [PyPI](https://pypi.org/project/pip/) to get familiar with it, try searching for packages that are relevant to your research domain / role!
+
+:::
+
+
