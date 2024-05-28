@@ -194,6 +194,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="package-file-history.html">2. Package File History</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -250,7 +262,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Using Markdown</a></p>
 <hr>
-<p>Last updated on 2024-04-02 |
+<p>Last updated on 2024-05-28 |
         
         <a href="https://github.com/christopher-wild/FAIR4RS-Packaging/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -329,7 +341,7 @@ reinforce the objectives.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Output</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -358,7 +370,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -417,6 +429,256 @@ locally</li>
 </ul>
 </div>
 </div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</section></section><section id="aio-package-file-history"><p>Content from <a href="package-file-history.html">Package File History</a></p>
+<hr>
+<p>Last updated on 2024-05-28 |
+        
+        <a href="https://github.com/christopher-wild/FAIR4RS-Packaging/edit/main/episodes/package-file-history.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What is required to turn your Python project into a package?</li>
+<li>Why are there so many file types you can use to create packages in
+Python?</li>
+<li>Which file type is the most appropriate for my project?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Learn the difference between a python project and package</li>
+<li>Understand the prerequisites for turning your project into a
+package</li>
+<li>Explain the different ways of creating a Python Package</li>
+<li>Understand the shortfalls of the previous packaging standards</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<hr class="half-width">
+<p>In this episode we are going to look at what turns your project of
+python code into a Python package. Throughout Pythons development there
+have been many different ways of doing this, we will aim to explore some
+of these. This is to both build an understanding of why the current
+standard is what it is and to have some context if you ever come across
+the other methods when looking at other projects.</p>
+<div id="what-python-packaging-files-exist" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="what-python-packaging-files-exist" class="callout-inner">
+<h3 class="callout-title">What Python packaging files exist?<a class="anchor" aria-label="anchor" href="#what-python-packaging-files-exist"></a>
+</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>requirements.txt</li>
+<li>setup.py</li>
+<li>setup.cfg</li>
+<li>pyproject.toml</li>
+</ol>
+</div>
+</div>
+</div>
+</section><section id="requirements.txt"><h2 class="section-heading">Requirements.txt<a class="anchor" aria-label="anchor" href="#requirements.txt"></a>
+</h2>
+<hr class="half-width">
+<p>A <code>requirements.txt</code> is a text file where each line
+represents a package or library that your project depends on. A package
+managing tool like PIP can use this file to install all the necessary
+dependencies.</p>
+<p>While a requirements.txt file isn’t normally directly used for
+packaging, its a simple and common filetype that offers some of the
+features that the packaging files do.</p>
+<pre><code>requests==2.26.0
+numpy&gt;=1.21.0
+matplotlib&lt;4.0</code></pre>
+</section><section id="setup.py"><h2 class="section-heading">Setup.py<a class="anchor" aria-label="anchor" href="#setup.py"></a>
+</h2>
+<hr class="half-width">
+<p>Before the introduction of <code>pyproject.toml</code> the main tool
+supported for installing packages was <code>setup.py</code>. As the
+extension suggests a <code>setup.py</code> is a python file where the
+metadata and logic for building your package are contained.</p>
+<div id="setup.py-problems" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="setup.py-problems" class="callout-inner">
+<h3 class="callout-title">Setup.py problems<a class="anchor" aria-label="anchor" href="#setup.py-problems"></a>
+</h3>
+<div class="callout-content">
+<p>Q: Discuss with each other what problems if any you think there may
+be with using a python file to create python packages</p>
+<p><code>Hint: Think about the differences between a code file and a text file</code></p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>Some potential issues are: 1. As <code>setup.py</code> is a code
+file, there is a potential for malicious code to be hidden in them if
+the file comes from an untrusted source 2. There is quite a bit of
+‘boilerplate’ in each file 3. The syntax has to be precise and may be
+confusing to those not familiar with Python</p>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>setup(</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  name<span class="op">=</span><span class="st">'my_cool_package'</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  version<span class="op">=</span><span class="st">'1.0.0'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  description<span class="op">=</span><span class="st">'A package to do awesome things'</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  long_description<span class="op">=</span><span class="bu">open</span>(<span class="st">'README.md'</span>).read(),</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>  author<span class="op">=</span><span class="st">'John Doe'</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>  author_email<span class="op">=</span><span class="st">'john.doe@example.com'</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>  license<span class="op">=</span><span class="st">'MIT'</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>)</span></code></pre>
+</div>
+</section><section id="setup.cfg"><h2 class="section-heading">Setup.cfg<a class="anchor" aria-label="anchor" href="#setup.cfg"></a>
+</h2>
+<hr class="half-width">
+<p>To tackle some of the problems with <code>setup.py</code>, another
+standard file was introduced called <code>setup.cfg</code> (cfg stands
+for config).</p>
+<p>The task of a <code>setup.cfg</code> file is to declare metadata and
+settings required for a package in a simple manner. Unlike a setup.py
+which requires code imports and functions, the <code>setup.cfg</code>
+only has headers and key value pairs.</p>
+<div id="key-value-pair" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="key-value-pair" class="callout-inner">
+<h3 class="callout-title">Key Value Pair<a class="anchor" aria-label="anchor" href="#key-value-pair"></a>
+</h3>
+<div class="callout-content">
+<p>A key value pair is a fundamental way of storing data which is used
+across many languages and formats. Here’s how it works:</p>
+<ul>
+<li>Key: Is the unique identifier, like the label on a file in a filing
+cabinet</li>
+<li>Value: Is the actual data that needs storing. It can be a number,
+text or many other things.</li>
+</ul>
+<p>An example would be name = Jane</p>
+</div>
+</div>
+</div>
+<pre><code>[metadata]
+
+name = my_cool_package
+description = A package to do awesome things
+long_description = file: README.md
+author = John Doe
+author_email = john.doe@example.com
+keywords = data, analysis, python
+license = MIT
+
+[options]
+# Specify libraries your project needs (dependencies)
+install_requires = pandas numpy
+
+# Python version compatibility (optional)
+python_requires = &gt;=3.7</code></pre>
+<p>When using a <code>setup.cfg</code> however, a dummy
+<code>setup.py</code> was still required to build the package. This
+looked like:</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="im">from</span> setuptools <span class="im">import</span> setup</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>    setup()</span></code></pre>
+</div>
+</section><section id="pyproject.toml"><h2 class="section-heading">Pyproject.toml<a class="anchor" aria-label="anchor" href="#pyproject.toml"></a>
+</h2>
+<hr class="half-width">
+<p>Introduced in (PEP517)[<a href="https://peps.python.org/pep-0517/" class="external-link uri">https://peps.python.org/pep-0517/</a>], the latest file for
+packaging a python project is the <code>pyproject.toml</code> file. Like
+a <code>.cfg</code> file, a <code>toml</code> file is designed to be
+easy to read and declarative.</p>
+<div id="callout3" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout3"></a>
+</h3>
+<div class="callout-content">
+<p>TOML stands for Tom’s Obvious Minimal Language!</p>
+</div>
+</div>
+</div>
+<p>When originally introduced, the <code>pyproject.toml</code> file
+aimed to replace <code>setup.py</code> as the place to declare build
+system dependencies. For example the most basic
+<code>pyproject.toml</code> would look like this.</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">[build-system]</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># Minimum requirements for the build system to execute.</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"setuptools"</span><span class="op">,</span> <span class="st">"wheel"</span><span class="op">]</span></span></code></pre>
+</div>
+<p>Project metadata however was still being specified either in a
+<code>setup.py</code> or a <code>setup.cfg</code>, the latter being
+preferred.</p>
+<p>With the introduction of (PEP621)[<a href="https://peps.python.org/pep-0621/" class="external-link uri">https://peps.python.org/pep-0621/</a>] in 2020, project
+metadata could also be stored in the <code>pyproject.toml</code> files,
+meaning you only now need the single file to specify all the build
+requirements and metadata required for your package! This is still the
+preferred way in the community.</p>
+<p>We will be going into how to make a <code>pyproject.toml</code> file
+in more detail in one of the next episodes.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#Build system information</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="kw">[build-system]</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"setuptools"</span><span class="op">,</span> <span class="st">"wheel"</span><span class="op">]</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#Project Metadata</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"my_cool_package"</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.0.0"</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="dt">description</span> <span class="op">=</span> <span class="st">"A package to do awesome things"</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pandas"</span><span class="op">,</span> <span class="st">"numpy"</span><span class="op">]</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#Config for an external tool</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="kw">[tool.black]</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="dt">line-length</span> <span class="op">=</span> <span class="dv">98</span></span></code></pre>
 </div>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
