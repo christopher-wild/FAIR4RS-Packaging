@@ -43,6 +43,13 @@ Some of the most popular packages you may have heard of are:
 
 The Python Package Index or PyPI is an online repository of Python packages  hosting over 500,000 packages! While there are alternatives such as [conda-forge](https://conda-forge.org), PyPI is by far the most commonly used and likely to have all you need.
 
+::: challenge
+
+### Exercise 1: Explore PyPI
+
+Explore [PyPI](https://pypi.org/project/pip/) to get familiar with it, try searching for packages that are relevant to your research domain / role!
+
+:::
 
 ::: callout
 ### pip
@@ -59,6 +66,36 @@ pip itself is a python package that can be found on [PyPI](https://pypi.org/proj
 
 The most common way to use pip is from the command line. At the top of a package page on PyPI will be the example line you need to install the package
 
+::: challenge
+### Exercise 2: Create venv and install Numpy
+
+Step 1: Create a venv using the command `py -m venv .venv`
+
+and activate it with
+
+::: tab
+
+### Windows 
+
+`.\.venv\Scripts\activate`
+
+
+
+### macOS / Linux
+
+`source .venv/bin/activate`
+
+
+:::
+
+Step 2: Install Numpy into your new environment using `py -m pip install numpy`
+
+Step 3: Check your results with `py -m pip list`
+
+Step 4: Deactivate your environment with `deactivate`
+
+:::
+
 ::: spoiler
 
 ### Virtual Environments
@@ -67,12 +104,31 @@ Check out [this documentation](https://docs.python.org/3/l[PyPI](https://pypi.or
 
 :::
 
-::: challenge
+```
+py -m pip install numpy
+```
 
-### Exercise 1: Explore PyPI
+The above will install [numpy](https://pypi.org/project/numpy/) from PyPI, a popular scientific computing package enabling a wide range of mathematical and scientific functions. 
 
-Explore [PyPI](https://pypi.org/project/pip/) to get familiar with it, try searching for packages that are relevant to your research domain / role!
+pip can also be used to install packages from source, this means all the files for the package are on your local computer and pip installs it following the packaging instructions into your local environment ready to use. This is especially handy for packages either not on PyPI or for your own packages you're developing.
+
+```
+py -m pip install .
+```
+
+::: instructor
+
+The above command should be universal on both windows and mac/unix setups. It may be worth checking with the class at this point that they are all familiar with the -m notation, and what the above command does exactly
 
 :::
+
+Here the `.` means to install your current directory as a Python package. For this to work the directory your command line interface is currently in needs to have a packaging file, i.e. `setup.py` or `pyproject.toml`. 
+
+
+
+
+
+
+
 
 
