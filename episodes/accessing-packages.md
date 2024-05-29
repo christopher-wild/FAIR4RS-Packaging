@@ -8,7 +8,7 @@ exercises: 2
 
 - What are the different ways of downloading python packages?
 - What are package managers?
-- How can I use my own package?
+- How can I access my own package?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -24,7 +24,7 @@ exercises: 2
 ## Introduction
 
 Due to Pythons popularity as a language, it is quite likely that you won't be the first person to set off on solving any particular task.
-Many others have worked on common problems and then shared their solution in the form of a pacakge, which you can conveniently integrate into your own code and use!
+Many others have worked on common problems and then shared their solution in the form of a package, which you can conveniently integrate into your own code and use!
 
 ::: callout
 
@@ -39,6 +39,14 @@ Some of the most popular packages you may have heard of are:
 
 :::
 
+To use a package that is installed you use the key word `import` in python.
+
+```python
+import pandas as pd # This imports the pandas package and gives it a new name 'pd'.
+
+pd.read_csv("/my_data.csv") # Use the package to read a file
+```
+
 ## Python Package Index (PyPI)
 
 The Python Package Index or PyPI is an online repository of Python packages  hosting over 500,000 packages! While there are alternatives such as [conda-forge](https://conda-forge.org), PyPI is by far the most commonly used and likely to have all you need.
@@ -52,7 +60,7 @@ Explore [PyPI](https://pypi.org/project/pip/) to get familiar with it, try searc
 :::
 
 ::: callout
-## pip
+### pip
 
 pip (package installer for Python) is the standard tool for installing packages from PyPI. 
 You can think of PyPI being the supermarket full of packages and pip being the delivery van bringing it to your installation.
