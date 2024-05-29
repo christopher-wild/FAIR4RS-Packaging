@@ -42,9 +42,11 @@ Some of the most popular packages you may have heard of are:
 To use a package that is installed you use the key word `import` in python.
 
 ```python
-import pandas as pd # This imports the pandas package and gives it a new name 'pd'.
+# This imports the pandas package and gives it a new name 'pd'.
+import pandas as pd 
 
-pd.read_csv("/my_data.csv") # Use the package to read a file
+# Use the package to read a file
+pd.read_csv("/my_data.csv") 
 ```
 
 ## Python Package Index (PyPI)
@@ -63,14 +65,14 @@ Explore [PyPI](https://pypi.org/project/pip/) to get familiar with it, try searc
 ### pip
 
 pip (package installer for Python) is the standard tool for installing packages from PyPI. 
-You can think of PyPI being the supermarket full of packages and pip being the delivery van bringing it to your installation.
+You can think of PyPI being the supermarket full of packages and pip being the delivery van bringing it to you.
 
 :::
 
 
 ### Using pip
 
-pip itself is a python package that can be found on [PyPI](https://pypi.org/project/pip/), however it comes preinstalled with most python installations, for example [python.org](https://python.org) and inside virtual environments.
+pip itself is a python package that can be found on [PyPI](https://pypi.org/project/pip/). It however comes preinstalled with most python installations, for example [python.org](https://python.org) and inside virtual environments.
 
 The most common way to use pip is from the command line. At the top of a package page on PyPI will be the example line you need to install the package
 
@@ -84,9 +86,7 @@ The above will install [numpy](https://pypi.org/project/numpy/) from PyPI, a pop
 ::: challenge
 ### Exercise 2: Create venv and install Numpy
 
-Step 1: Create a venv using the command `py -m venv .venv`
-
-and activate it with
+Step 1: Create a venv in the .venv directory using the command `py -m venv .venv` and activate it with
 
 ::: tab
 
@@ -120,7 +120,7 @@ Check out [this documentation](https://docs.python.org/3/l[PyPI](https://pypi.or
 :::
 
 
-pip can also be used to install packages from source, this means all the files for the package are on your local computer and pip installs it following the packaging instructions into your local environment ready to use. This is especially handy for packages either not on PyPI or for your own packages you're developing.
+pip can also be used to install packages from source. This means that the package file structure (source) is on your local computer and pip installs it using the instructions from the `setup.py` or `pyproject.toml` file. This is especially handy for packages either not on PyPI, like ones downloaded from github, or for your own packages you're developing.
 
 ```
 py -m pip install .
