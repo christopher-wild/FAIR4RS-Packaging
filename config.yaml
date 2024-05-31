@@ -60,6 +60,7 @@ contact: 'rse@sheffield.ac.uk'
 # Order of episodes in your lesson
 episodes:
 - introduction.md
+- versioning.md
 
 # Information for Learners
 learners:
