@@ -91,15 +91,15 @@ The most basic directory structure of a Python package looks something like:
 📦 my_project/
 ├── 📂 my_package/
 │   └── 📄 __init__.py
-└── 📄 setup.py
-```
+└── 📄 pyproject.toml
 
 where
 
 - 📦 `my_project/` is the root directory of the project.
 - 📂 `my_package/` is the package directory containing the source code.
 - 📄 `__init__.py` is an initialisation script (note; this also lets Python know that there are importable modules in this directory).
-- 📄 `setup.py` is a script for setting up the package, containing basic metadata. Tools such as `setuptools` and `pip` use this script to configure how the package is built, distributed, and installed.
+- 📄 `pyproject.toml` is a configuation file for setting up the package, containing basic metadata. Tools such as `setuptools` and `pip` use this script to configure how the package is built, distributed, and installed.
+```
 
 
 ::::::::::::::::::::::::::::::::::::: callout
@@ -114,7 +114,13 @@ is primarily enabled by the specific (modular) structuring of the numpy package.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::::::::::::::::: discussion
 
+Another important point to highlight is the use of the ``__init__.py`` file in Python packages. In versions >= 3.3, Python introduced the concept of implicit namespace packages (see [PEP 420](https://peps.python.org/pep-0420/)). Namespace packages are a way of splitting a regular Python package (as described above) across multiple directories, which ultimately means the ``__init__.py`` file is not required to create a package. However, namespace packages are not commonly used, and it is common practise to still include ``__init__.py`` script to create "regular" packages. 
+
+Apart from the reasons mentioned above, what other advantages can you think of that would enable software development best practises by including the ``__init__.py`` script? Can you find out which kind of projects benefit from namespace packages?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -135,7 +141,7 @@ A possible improvement could be to include the following to your package:
 ├── 📂 my_package/
 │   └── 📄 __init__.py
 ├── 📂 tests/
-├── 📄 setup.py
+├── 📄 pyproject.toml
 ├── 📄 README.md
 └── 📄 LICENSE
 ```
@@ -145,7 +151,7 @@ The most obvious way to improve the package structure is to include a series of 
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Although we have touched on the core concepts of packaging in Python, including how to set up one using the `setup.py` file, we still need to learn about how to write the metadata and logic for building a package. The next episode of this course provides a brief overview of the history of Python packaging, and what is required to turn your own project into a package.
+Although we have touched on the core concepts of packaging in Python, including how to set up one using the `pyproject.toml` configuration file, we still need to learn about how to write the metadata and logic for building a package. The next episode of this course provides a brief overview of the history of Python packaging, and what is required to turn your own project into a package.
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
