@@ -18,7 +18,7 @@ editor_options:
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
--  Explain why versioning is crucial for software development, particularly in maintaining reproducibility and ensuring consistent behaviour of the code after changes.
+- Explain why versioning is crucial for software development, particularly in maintaining reproducibility and ensuring consistent behaviour of the code after changes.
 - Understand how to use tools like Poetry and Python Semantic Release for automating the version bumping process in Python projects.
 - Be able to create and integrate custom scripts or CI/CD pipelines for automated version bumping based on commit messages and predefined rules.
 
