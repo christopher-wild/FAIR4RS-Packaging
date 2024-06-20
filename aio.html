@@ -267,7 +267,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="versioning.html">3. Versioning</a>
+        <a href="accessing-packages.html">3. Accessing Packages</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -279,7 +279,19 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="releasing.html">4. Publishing Packages</a>
+        <a href="versioning.html">4. Versioning</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="releasing.html">5. Publishing Packages</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -885,6 +897,215 @@ in more detail in one of the next episodes.</p>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
+</section></section><section id="aio-accessing-packages"><p>Content from <a href="accessing-packages.html">Accessing Packages</a></p>
+<hr>
+<p>Last updated on 2024-06-20 |
+        
+        <a href="https://github.com/christopher-wild/FAIR4RS-Packaging/edit/main/episodes/accessing-packages.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What are the different ways of downloading python packages?</li>
+<li>What are package managers?</li>
+<li>How can I access my own package?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Learn about package managers such as PIP</li>
+<li>Install packages using PIP</li>
+<li>Install packages from source</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<hr class="half-width">
+<p>Due to Pythons popularity as a language, it is quite likely that you
+won’t be the first person to set off on solving any particular task.
+Many others have worked on common problems and then shared their
+solution in the form of a package, which you can conveniently integrate
+into your own code and use!</p>
+<div id="popular-packages" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="popular-packages" class="callout-inner">
+<h3 class="callout-title">Popular Packages<a class="anchor" aria-label="anchor" href="#popular-packages"></a>
+</h3>
+<div class="callout-content">
+<p>Some of the most popular packages you may have heard of are:</p>
+<ul>
+<li>Numpy</li>
+<li>Pandas</li>
+<li>Tensorlow</li>
+<li>Matplotlib</li>
+<li>Requests</li>
+</ul>
+</div>
+</div>
+</div>
+<p>To use a package that is installed you use the key word
+<code>import</code> in python.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># This imports the pandas package and gives it a new name 'pd'.</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Use the package to read a file</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>pd.read_csv(<span class="st">"/my_data.csv"</span>) </span></code></pre>
+</div>
+</section><section id="python-package-index-pypi"><h2 class="section-heading">Python Package Index (PyPI)<a class="anchor" aria-label="anchor" href="#python-package-index-pypi"></a>
+</h2>
+<hr class="half-width">
+<p>The Python Package Index or PyPI is an online repository of Python
+packages hosting over 500,000 packages! While there are alternatives
+such as <a href="https://conda-forge.org" class="external-link">conda-forge</a>, PyPI is by
+far the most commonly used and likely to have all you need.</p>
+<div id="exercise-1-explore-pypi" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="exercise-1-explore-pypi" class="callout-inner">
+<h3 class="callout-title">Exercise 1: Explore PyPI<a class="anchor" aria-label="anchor" href="#exercise-1-explore-pypi"></a>
+</h3>
+<div class="callout-content">
+<p>Explore <a href="https://pypi.org/project/pip/" class="external-link">PyPI</a> to get
+familiar with it, try searching for packages that are relevant to your
+research domain / role!</p>
+</div>
+</div>
+</div>
+<div id="pip" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="pip" class="callout-inner">
+<h3 class="callout-title">pip<a class="anchor" aria-label="anchor" href="#pip"></a>
+</h3>
+<div class="callout-content">
+<p>pip (package installer for Python) is the standard tool for
+installing packages from PyPI. You can think of PyPI being the
+supermarket full of packages and pip being the delivery van bringing it
+to you.</p>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="using-pip">Using pip<a class="anchor" aria-label="anchor" href="#using-pip"></a>
+</h3>
+<p>pip itself is a python package that can be found on <a href="https://pypi.org/project/pip/" class="external-link">PyPI</a>. It however comes
+preinstalled with most python installations, for example <a href="https://python.org" class="external-link">python.org</a> and inside virtual
+environments.</p>
+<p>The most common way to use pip is from the command line. At the top
+of a package page on PyPI will be the example line you need to install
+the package</p>
+<pre><code>py -m pip install numpy</code></pre>
+<p>The above will install <a href="https://pypi.org/project/numpy/" class="external-link">numpy</a> from PyPI, a popular
+scientific computing package enabling a wide range of mathematical and
+scientific functions.</p>
+<div id="exercise-2-create-venv-and-install-numpy" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="exercise-2-create-venv-and-install-numpy" class="callout-inner">
+<h3 class="callout-title">Exercise 2: Create venv and install Numpy<a class="anchor" aria-label="anchor" href="#exercise-2-create-venv-and-install-numpy"></a>
+</h3>
+<div class="callout-content">
+<p>Step 1: Create a venv in the .venv directory using the command
+<code>py -m venv .venv</code> and activate it with</p>
+<div class="tabs">
+<nav><div id="nav-tab-1" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-1-1" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-1" type="button" role="tab" aria-controls="nav-tabpanel-1-1" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-1-1">
+  Windows
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-1-2" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-1-2" type="button" role="tab" aria-controls="nav-tabpanel-1-2" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-1-2">
+  macOS / Linux
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-1" class="tab-content">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
+<p><code>.\.venv\Scripts\activate</code></p>
+</div>
+<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
+<p><code>source .venv/bin/activate</code></p>
+</div>
+</div>
+</div>
+<p>Step 2: Install Numpy into your new environment</p>
+<p>Step 3: Check your results with <code>py -m pip list</code></p>
+<p>Step 4: Deactivate your environment with <code>deactivate</code></p>
+</div>
+</div>
+</div>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Virtual Environments </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
+<p>Check out <a href="https://docs.python.org/3/l%5BPyPI%5D(https://pypi.org/project/pip/)ibrary/venv.html" class="external-link">this
+documentation</a> or the FAIR4RS course on virtual environments to learn
+more!</p>
+</div>
+</div>
+</div>
+</div>
+<p>pip can also be used to install packages from source. This means that
+the package file structure (source) is on your local computer and pip
+installs it using the instructions from the <code>setup.py</code> or
+<code>pyproject.toml</code> file. This is especially handy for packages
+either not on PyPI, like ones downloaded from github, or for your own
+packages you’re developing.</p>
+<pre><code>py -m pip install .</code></pre>
+
+<p>Here the <code>.</code> means to install your current directory as a
+Python package. For this to work the directory your command line
+interface is currently in needs to have a packaging file,
+i.e. <code>setup.py</code> or <code>pyproject.toml</code>.</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>pip can be used to download and install Python packages</li>
+<li>PyPI is an online package repository which pip downloads from</li>
+<li>pip can also install local packages like your own</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</div>
 </section></section><section id="aio-versioning"><p>Content from <a href="versioning.html">Versioning</a></p>
 <hr>
 <p>Last updated on 2024-06-20 |
