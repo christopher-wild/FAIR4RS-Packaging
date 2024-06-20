@@ -62,6 +62,8 @@ episodes:
 - introduction.md
 - package-file-history.Rmd
 - versioning.md
+- releasing.md
+
 
 # Information for Learners
 learners:
