@@ -23,11 +23,11 @@ keywords: 'packaging, software, FAIR, reproducibility'
 # possible values: pre-alpha, alpha, beta, stable
 life_cycle: 'pre-alpha'
 
-# License of the lesson materials (recommended CC-BY 4.0)
+# License of the lesson
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/christopher-wild/FAIR4RS-Packaging'
+source: 'https://github.com/christopher-wild/FAIR4RS-Packaging' # FIXME
 
 # Default branch of your lesson
 branch: 'main'
@@ -58,23 +58,26 @@ contact: 'rse@sheffield.ac.uk'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
 - introduction.md
 - package-file-history.Rmd
 - accessing-packages.md
+- versioning.md
+- releasing.md
 
 # Information for Learners
-learners: 
+learners:
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
 
-
+#varnish: RSE-Sheffield/uos-varnish@main
+#url: '[user].github.io/[repo]'  #TODO: fix this at the end
