@@ -128,19 +128,6 @@ license = {file = "LICENSE"}
 
 ```
 
-::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge 1: Packaging Analogy
-
-
-
-
-:::::::::::::::::::::::: solution
-
-## Solution
-
-
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
+#TODO: add content on Github, PyPI and Figshare with some examples.
 
