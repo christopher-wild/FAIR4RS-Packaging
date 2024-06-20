@@ -61,9 +61,9 @@ contact: 'rse@sheffield.ac.uk'
 episodes:
 - introduction.md
 - package-file-history.Rmd
+- accessing-packages.md
 - versioning.md
 - releasing.md
-
 
 # Information for Learners
 learners:
