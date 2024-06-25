@@ -45,7 +45,7 @@ Think back to the earlier episodes and try to recall all the things that can go 
 ::: solution
 1. Python Module - This is the directory with the python code that does the work.
 2. Configuration File - e.g. your pyproject.toml file
-3. Other metadata files - e.g. LICENENSE, README.md, citation.cff
+3. Other metadata files - e.g. LICENCE, README.md, citation.cff
 4. Python Tests - A directory full of unit-tests and other tests
 :::
 :::
@@ -120,7 +120,7 @@ dependencies = ["pandas", "numpy"]
 The `[build-system]` table specifies information required to build your project directory into a package. The main key in this table is `requires`, this key states what build tool(s) should be used to do this building. There are multiple popular [build tools](https://packaging.python.org/en/latest/guides/tool-recommendations/#build-backends) that can be used to build your project, in this tutorial we will use `setuptools`, as it is simple and very popular.
 
 ### [project]
-The `[project]` table is where your packages core metadata is declared. 
+The `[project]` table is where your package's core metadata is declared. 
 
 ::: callout
 ### pyproject.toml documentation
@@ -147,7 +147,7 @@ requires = ["setuptools"]
 
 [project]
 name = "fibonacci"
-version = "0.0.0"pip
+version = "0.0.0"
 description = "A package which can produce the Fibonacci sequence"
 authors = [{name = "your_name", email="youremail@email.com"}]
 keywords = ["fibonacci", "maths"]
@@ -155,21 +155,23 @@ keywords = ["fibonacci", "maths"]
 :::
 :::
 
-Running `py -m pip install .` will install your package. Just ensure your terminals working directory is the same as the `pyproject.toml` file!
+Running `py -m pip install .` will install your package. Just ensure your terminal's working directory is the same as the `pyproject.toml` file!
 
 ::: callout
 ### Editable Install
 When installing your own package locally, there is an option called editable or `-e` for short.
 `py -m pip install -e .`
 
-With a default installation (without -e), any changes to your source package will only appear in your python environment when your package is rebuilt and reinstalled. The editable option allows for quick development of a package by removing that need to reinstalled, for this reason it is sometimes called development mode!
+With a default installation (without -e), any changes to your source package will only appear in your python environment when your package is rebuilt and reinstalled. The editable option allows for quick development of a package by removing that need to be reinstalled, for this reason it is sometimes called development mode!
+
+
 
 :::
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - A package can be built with as little as 2 files, a python script and a configuration file
 - pyproject.toml files have 2 key tables, [build-system] and [project]
-- Editable installs allow for quick and easy package development
+- Editable instals allow for quick and easy package development
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
