@@ -223,7 +223,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="versioning.html">4. Versioning</a>
+        <a href="creating-packages.html">4. Creating Packages</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -235,7 +235,19 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="releasing.html">5. Publishing Python Packages</a>
+        <a href="versioning.html">5. Versioning</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="releasing.html">6. Publishing Python Packages</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -408,7 +420,7 @@ package attribute in terms of the software attribute.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>Box of items: The software itself (source code, data,
@@ -533,7 +545,7 @@ to provide better organisation, readability, and compatibility?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>A possible improvement could be to include the following to your
 package:</p>
@@ -1012,7 +1024,7 @@ scientific functions.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Virtual Environments </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>Check out <a href="https://docs.python.org/3/l%5BPyPI%5D(https://pypi.org/project/pip/)ibrary/venv.html" class="external-link">this
 documentation</a> or the FAIR4RS course on virtual environments to learn
@@ -1033,7 +1045,7 @@ packages you’re developing.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>The above command should be universal on both windows and mac/unix
 setups. It may be worth checking with the class at this point that they
@@ -1059,6 +1071,333 @@ i.e. <code>setup.py</code> or <code>pyproject.toml</code>.</p>
 <li>pip can be used to download and install Python packages</li>
 <li>PyPI is an online package repository which pip downloads from</li>
 <li>pip can also install local packages like your own</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</div>
+</section></section><section id="aio-creating-packages"><p>Content from <a href="creating-packages.html">Creating Packages</a></p>
+<hr>
+<p>Last updated on 2024-06-25 |
+        
+        <a href="https://github.com/christopher-wild/FAIR4RS-Packaging/edit/main/episodes/creating-packages.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>Where do I start if I want to make a Python package?</li>
+<li>What will I need / want in my package?</li>
+<li>What’s considered good practice with packaging?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Create and build a basic example Python package</li>
+<li>Understand all the parts and decisions in making the package</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<hr class="half-width">
+<p>This episode will see us creating our own Python project from scratch
+and installing it into a python virtual environment ready for use. Feel
+free if you’re feeling adventurous to create your own package content or
+follow along with this example of a Fibonacci counter.</p>
+</section><section id="fibonacci-counter"><h2 class="section-heading">Fibonacci Counter<a class="anchor" aria-label="anchor" href="#fibonacci-counter"></a>
+</h2>
+<hr class="half-width">
+<p>This package will allow a user to find any value from the Fibonacci
+sequence. The Fibonacci sequence is a series of whole numbers where each
+number is the sum of the two previous numbers. The first 8 numbers of
+the sequence are <code>0, 1, 1, 2, 3, 5, 8, 13</code>.</p>
+<div id="reinventing-the-wheel" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="reinventing-the-wheel" class="callout-inner">
+<h3 class="callout-title">Reinventing the wheel<a class="anchor" aria-label="anchor" href="#reinventing-the-wheel"></a>
+</h3>
+<div class="callout-content">
+<p>It is good to ask yourself if the package or features you are
+designing have been done before. Obviously we have chosen a simple
+function as the focus of this episode is on packaging code rather than
+developing novel code.</p>
+</div>
+</div>
+</div>
+</section><section id="creating-the-package-contents"><h2 class="section-heading">Creating the package contents<a class="anchor" aria-label="anchor" href="#creating-the-package-contents"></a>
+</h2>
+<hr class="half-width">
+<p>In this section we will go through creating everything required for
+the package.</p>
+<div id="what-files-and-content-go-into-a-package" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="what-files-and-content-go-into-a-package" class="callout-inner">
+<h3 class="callout-title">What files and content go into a package?<a class="anchor" aria-label="anchor" href="#what-files-and-content-go-into-a-package"></a>
+</h3>
+<div class="callout-content">
+<p>Think back to the earlier episodes and try to recall all the things
+that can go into a package.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<ol style="list-style-type: decimal">
+<li>Python Module - This is the directory with the python code that does
+the work.</li>
+<li>Configuration File - e.g. your pyproject.toml file</li>
+<li>Other metadata files - e.g. LICENCE, README.md, citation.cff</li>
+<li>Python Tests - A directory full of unit-tests and other tests</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>In this episode we will only be creating a minimal example so many of
+the files you have thought of won’t be included. Next we will be
+creating our directory structure. In either your <code>documents</code>
+folder if you are on Windows or your <code>home</code> directory if you
+are on macOS or Linux, create a folder called
+<code>my_project</code></p>
+<pre><code>📦 my_project/
+├── 📂 my_package/
+│   └── 📄 fibonacci.py
+├── 📄 pyproject.toml
+└── 📂 tests/
+    └── 📄 test_fibonacci.py</code></pre>
+<p>The first thing we will do in this project is create the python
+module (the actual code!).</p>
+<div id="creating-python-module" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="creating-python-module" class="callout-inner">
+<h3 class="callout-title">Creating Python module<a class="anchor" aria-label="anchor" href="#creating-python-module"></a>
+</h3>
+<div class="callout-content">
+<ol style="list-style-type: decimal">
+<li>Create a python file called <code>fibonacci.py</code> as shown in
+the structure above.</li>
+<li>Add the following code which contains a function that returns the
+Fibonacci sequence</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">def</span> fibonacci(n_terms):</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  num1 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  num2 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  next_num <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>  <span class="cf">while</span> count <span class="op">&lt;</span> n_terms:</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    <span class="bu">print</span>(num1)</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>    num1, num2 <span class="op">=</span> num2, next_num</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>    next_num <span class="op">=</span> num1 <span class="op">+</span> num2</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="using-your-python-module" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="using-your-python-module" class="callout-inner">
+<h3 class="callout-title">Using your Python module<a class="anchor" aria-label="anchor" href="#using-your-python-module"></a>
+</h3>
+<div class="callout-content">
+<p>Create a script in your project directory that imports and uses your
+fibonacci script. This will serve as a good quick test that it
+works.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<ol style="list-style-type: decimal">
+<li>Create the file in <code>/my_project</code>, for example
+<code>fibonacci_test.py</code>.</li>
+<li>Import and run the fibonacci function:</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">from</span> my_package.fibonacci <span class="im">import</span> fibonacci</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>fibonacci(<span class="dv">5</span>)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="configuration-file"><h2 class="section-heading">Configuration File<a class="anchor" aria-label="anchor" href="#configuration-file"></a>
+</h2>
+<hr class="half-width">
+<p>In this section we are going to look deeper into the
+<code>pyproject.toml</code>. Sections in a <code>.toml</code> file are
+called tables. In a <code>pyproject.toml</code> file there are 2 tables
+required for a minimum working <code>pyproject.toml</code>: a
+<code>[build-system]</code> table and a <code>[project]</code> table.
+Take a look at the minimum example <code>pyproject.toml</code>
+below.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="kw">[build-system]</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"setuptools"</span><span class="op">]</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"my_cool_package"</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.0.0"</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="dt">description</span> <span class="op">=</span> <span class="st">"A package to do awesome things"</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="dt">dependencies</span> <span class="op">=</span> <span class="op">[</span><span class="st">"pandas"</span><span class="op">,</span> <span class="st">"numpy"</span><span class="op">]</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="build-system">[build-system]<a class="anchor" aria-label="anchor" href="#build-system"></a>
+</h3>
+<p>The <code>[build-system]</code> table specifies information required
+to build your project directory into a package. The main key in this
+table is <code>requires</code>, this key states what build tool(s)
+should be used to do this building. There are multiple popular <a href="https://packaging.python.org/en/latest/guides/tool-recommendations/#build-backends" class="external-link">build
+tools</a> that can be used to build your project, in this tutorial we
+will use <code>setuptools</code>, as it is simple and very popular.</p>
+</div>
+<div class="section level3">
+<h3 id="project">[project]<a class="anchor" aria-label="anchor" href="#project"></a>
+</h3>
+<p>The <code>[project]</code> table is where your package’s core
+metadata is declared.</p>
+<div id="pyproject.toml-documentation" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="pyproject.toml-documentation" class="callout-inner">
+<h3 class="callout-title">pyproject.toml documentation<a class="anchor" aria-label="anchor" href="#pyproject.toml-documentation"></a>
+</h3>
+<div class="callout-content">
+<p>The full list of accepted keys can be found <a href="https://packaging.python.org/en/latest/specifications/pyproject-toml/" class="external-link">here</a>
+in the documentation</p>
+</div>
+</div>
+</div>
+<div id="create-your-configuration-file" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="create-your-configuration-file" class="callout-inner">
+<h3 class="callout-title">Create your configuration file<a class="anchor" aria-label="anchor" href="#create-your-configuration-file"></a>
+</h3>
+<div class="callout-content">
+<p>Create a <code>pyproject.toml</code> file with the two required
+tables. In the <code>[project]</code> table include the following
+keys:</p>
+<ul>
+<li>name</li>
+<li>version</li>
+<li>description</li>
+<li>authors</li>
+<li>keywords</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">TOML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode toml" tabindex="0"><code class="sourceCode toml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">[build-system]</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"setuptools"</span><span class="op">]</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="kw">[project]</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"fibonacci"</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.0.0"</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="dt">description</span> <span class="op">=</span> <span class="st">"A package which can produce the Fibonacci sequence"</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="dt">authors</span> <span class="op">=</span> <span class="op">[{</span><span class="dt">name</span><span class="op"> =</span> <span class="st">"your_name"</span><span class="op">, </span><span class="dt">email</span><span class="op">=</span><span class="st">"youremail@email.com"</span><span class="op">}]</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="dt">keywords</span> <span class="op">=</span> <span class="op">[</span><span class="st">"fibonacci"</span><span class="op">,</span> <span class="st">"maths"</span><span class="op">]</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Running <code>py -m pip install .</code> will install your package.
+Just ensure your terminal’s working directory is the same as the
+<code>pyproject.toml</code> file!</p>
+<div id="editable-install" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="editable-install" class="callout-inner">
+<h3 class="callout-title">Editable Install<a class="anchor" aria-label="anchor" href="#editable-install"></a>
+</h3>
+<div class="callout-content">
+<p>When installing your own package locally, there is an option called
+editable or <code>-e</code> for short.
+<code>py -m pip install -e .</code></p>
+<p>With a default installation (without -e), any changes to your source
+package will only appear in your python environment when your package is
+rebuilt and reinstalled. The editable option allows for quick
+development of a package by removing that need to be reinstalled, for
+this reason it is sometimes called development mode!</p>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>A package can be built with as little as 2 files, a python script
+and a configuration file</li>
+<li>pyproject.toml files have 2 key tables, [build-system] and
+[project]</li>
+<li>Editable instals allow for quick and easy package development</li>
 </ul>
 </div>
 </div>
@@ -1292,7 +1631,7 @@ your reasoning.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <p>Think about whether the new feature introduces any breaking changes
 for existing users.</p>
@@ -1305,7 +1644,7 @@ for existing users.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>According to semantic versioning, since the new feature adds
 functionality in a backward-compatible manner, the version should be
@@ -1484,7 +1823,7 @@ changes you have made to your code.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Simply run:</p>
 <ol style="list-style-type: decimal">
@@ -2391,10 +2730,10 @@ any links that you are not going to use.
         
 
         <!--<p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY 4.0</a> by <a href="https://carpentries.org/">The Carpentries</a></p>-->
-        <!--<p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.5">pegboard (0.7.5)</a>, and <a href="https://github.com/RSE-Sheffield/uos-varnish/tree/main">varnish (1.0.2.9000)</a></p>-->
+        <!--<p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6">pegboard (0.7.6)</a>, and <a href="https://github.com/RSE-Sheffield/uos-varnish/tree/main">varnish (1.0.2.9000)</a></p>-->
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/0.7.5" class="external-link">pegboard (0.7.5)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>,
       and <a href="https://github.com/RSE-Sheffield/uos-varnish/tree/main" class="external-link">varnish (1.0.2.9000) [UoS fork]</a>.</p>
 			</div>
 		</footer>
