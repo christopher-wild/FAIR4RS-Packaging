@@ -76,6 +76,5 @@ instructors:
 # Learner Profiles
 profiles:
 
-
-#varnish: RSE-Sheffield/uos-varnish@main
-#url: '[user].github.io/[repo]'  #TODO: fix this at the end
+varnish: RSE-Sheffield/uos-varnish@main
+url: 'christopher-wild.github.io/FAIR4RS-Packaging'
