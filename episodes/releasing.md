@@ -329,71 +329,9 @@ Developers often use [TestPyPI](https://test.pypi.org/) for testing and validati
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-However, before we can upload our package on to PyPI, we need to ensure that we have:
-
-1. Selected our build system.
-
-2. Configured the metadata of our package.
-
-Both of these pieces of information must be supplied in the project's `pyproject.toml` file.
-There are 3 `TOML` tables in this file that are of interest to us.
-
-- The `[build-system]` table is allows us to declare which backend to use, and which other dependencies are needed to build your project. Specifying the backend ensures that our package conforms to the standards required by packaging systems, like PyPI, making it easier for users to install and use the software.
-
-- The `[project] `table is contains information about your project’s basic metadata, such as the dependencies, your name, etc.
-
-- The `[tool]` table is where configuration settings specific to a particular tool or package are defined. It allows users to customise and manage settings for tools associated with their project, such as build systems, linters, or code formatters.
-
-
-Putting it all together, a Python package that is ready to be published to PyPI should have a TOML file that will look like:
-
-
-```toml
-# pyproject.toml
-
-[build-system]
-requires = ["setuptools>=61.0.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[project]
-name = "your-project-name"
-version = "1.0.0"
-description = "A brief description of your project"
-readme = "README.md"
-authors = [{ name = "Your Name", email = "your.email@example.com" }]
-license = { file = "LICENSE" }
-classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-]
-keywords = ["keyword1", "keyword2"]
-dependencies = [
-    "dependency1 >= 1.0.0",
-    "dependency2",
-    'optional-dependency; python_version < "3.11"',
-]
-requires-python = ">=3.9"
-
-[project.optional-dependencies]
-dev = ["tool1", "tool2"]
-
-[project.urls]
-Homepage = "https://github.com/your-username/your-project"
-
-```
-
-The `classifiers` table contains the important metadata about your project that makes your software findable and informative to other users. This metadata and the `README` file will be directly read your software's PyPI page.
-
-::::::::::::::::::::::::::::::::::::: callout
-
-A wheel in Python is a built package format that allows for quicker and more efficient installation compared to building from source. It is a distribution format with a `.whl` file extension that contains all the necessary files for a package, ready to be installed by pip. TOML files are then used to define the build requirements and specify how tools (like `setuptools` and `wheel`) should be used to build packages using the wheel format.
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
 To build the wheels, there are 2 tools that we need to install and use. The first is `build`, which is a command-line tool used to build source distributions, and wheel distributions  of Python projects based on the metadata specified in the `pyproject.toml`. On the other hand, `twine` is the tool we use to securely upload the built distributions to PyPI, which handles tasks like authentication and transfer of package files. 
 
-In practise, the installation and usage of these tools would look something like:
+In practice, the installation and usage of these tools would look something like:
 
 ```bash
 
@@ -540,7 +478,7 @@ Finally, once you have uploaded your file sources to ORDA, your software will be
 
 - GitHub tags provide a way to manage specific software versions via releases, enabling developers to easily reference and distribute stable versions of their software for their users. 
 
-- Publish your package on PyPI for the wider Python community, allowing your users to simply install your software using `pip install`.
+- You can easily publish your package on PyPI for the wider Python community, allowing your users to simply install your software using `pip install`.
 
 - The University of Sheffield's ORDA repository is another valuable platform to upload your software, further enabling software reproducibility, transparency, and research impact for all project collaborators involved.
 
