@@ -7,7 +7,7 @@ This repository contains a course on documenting research software that is part 
 
 ## Course description
 
-Research software is increasingly becoming a key and fundamental part of research. There is a growing recognition that research software would benefit from adhering to the FAIR principles which is the main motivation behind the FAIR4RS (Findable, Accessible, Interoperable, Reusable for Research Software) principles. This is an extension of the FAIR principles, which acknowledges the applicability of the FAIR approach to research software. Software packaging has many benefits, such as enabling your research software to be discovered, installed, and utilised with ease.  The course will explore the fundamental concepts of FAIR4RS, how it applies to packaging, its execution within Python, and the adoption of best practices in this domain.
+Research software is increasingly becoming a key and fundamental part of research. There is a growing recognition that research software would benefit from adhering to the FAIR principles, which is the main motivation behind the FAIR4RS (Findable, Accessible, Interoperable, Reusable for Research Software) principles. This is an extension of the FAIR principles, which acknowledges the applicability of the FAIR approach to research software. Software packaging has many benefits, such as enabling your research software to be discovered, installed, and utilised with ease.  This course will explore the fundamental concepts of FAIR4RS, how it applies to packaging, its execution within Python, and the adoption of best practices in this domain.
 
 
 ## Course overview
