@@ -1,9 +1,4 @@
----
-title: "Licenses"
----
-
 ## Instructional Material
-
 All Carpentries (Software Carpentry, Data Carpentry, and Library Carpentry)
 instructional material is made available under the [Creative Commons
 Attribution license][cc-by-human]. The following is a human-readable summary of
