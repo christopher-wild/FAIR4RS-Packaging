@@ -101,7 +101,7 @@ Contributions to My Python Project are welcome! If you'd like to contribute, ple
 
 ### Licensing 
 
-Following this, it is essential for your software to have a license to emphasise to users what their rights are in regards to usage and redistribution. The purpose of this is to provide the developer with some legal protections, if needed. There are many different open source licenses available, and it is up to the developer(s) to choose the appropriate license. You can explore alternative open source licenses at [www.choosealicense.com](www.choosealicense.com). It is important to note that your selection of license may be influenced by the licenses of your dependencies. 
+Following this, it is essential for your software to have a license to emphasise to users what their rights are in regards to usage and redistribution. The purpose of this is to provide the developer with some legal protections, if needed. There are many different open source licenses available, and it is up to the developer(s) to choose the appropriate license. You can explore alternative open source licenses at [www.choosealicense.com](www.choosealicense.com). It is important to note that your selection of license may be constrained by the licenses of your dependencies. 
 
 The most common license used in open source projects is the [MIT license](https://en.wikipedia.org/wiki/MIT_License). The MIT license is permissive, which allows users to freely use, modify, and distribute software while providing a disclaimer of liability.
 
@@ -387,13 +387,65 @@ pip install your-project-name
 
 You would like to automate the process of publishing a Python package to PyPI whenever a new tag is pushed to your GitHub repository. Describe how you would set up a GitHub Actions workflow to achieve this automation. Include steps to handle versioning, build the package, securely manage PyPI credentials, and ensure proper error handling.
 
+:::::::::::::::::::::::: hint
+
+## Hint
+
+There are several pre-exisiting GitHub Actions that you could use, for example: [gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish)
+
+:::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::: solution
 
 ## Solution
 
-We can start by configuring a GitHub Actions workflow (e.g., publish.yml) triggered specifically on tag pushes as demonstrated in the previous section (`on: push: tags: - 'v*'`). Within the workflow, we can define jobs to build the package using tools like `build` (`python -m build`) to create both `sdist` and the `wheel` distributions. Following this, we securely manage our PyPI credentials by storing them as GitHub Secrets (`secrets.PYPI_USERNAME`, `secrets.PYPI_PASSWORD`) and only access them securely within the workflow environment.
+Before writing a workflow file, we need to make sure that we've created a PyPI API token to authenticate the Action.
 
-Following this, we use `twine` to handle the upload (`twine upload dist/*`) of the prepared distributions to PyPI. We can also implement appropriate error handling mechanisms (e.g. using `try...catch`) within the workflow to manage unexpected issues and ensure notifications are set up to provide status updates.
+Next, you should add this API token as a repository secret under `Settings > Secrets > Actions`, called something like `PYPI_TOKEN`. You can follow the same instructions to generate a similar token for TestPyPI, too. 
+
+Following this, you can create a workflow file in `.github/workflows/` called `release-to-pypi.yml` with the following content:
+
+
+```yaml
+
+name: Publish Python Package to PyPI
+
+on:
+  push: # You can change this to any other trigger you like
+    tags:
+      - v*  # This will trigger the workflow for any new tag that starts with 'v'
+
+tags:
+  - v*
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    name: Publish package to PyPI
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: 3.10 # Or whatever verison you want
+          cache: 'pip'
+      - name: Install the package
+        run: |
+          pip install .
+      - name: Build package
+        run: |
+          python -m build --no-isolation
+      - name: Publish package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          username: __token__
+          password: ${{ secrets.PYPI_TOKEN }}
+
+```
+
+The above instructions triggers a GitHub Actions workflow that automatically publishes a Python package to PyPI whenever a new tag starting with "v" is pushed to the repository.
 
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
