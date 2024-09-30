@@ -154,9 +154,9 @@ Here the `.` means to install your current directory as a Python package. For th
 
 
 ::: keypoints
-- pip can be used to download and install Python packages
-- PyPI is an online package repository which pip downloads from
-- pip can also install local packages like your own
+- pip is the most common tool used to download and access python packages from PyPI.
+- PyPI is an online package repository which users can choose to upload their packages to for others to use.
+- pip can also be used to install packages on your local system (installing from source)
 :::
 
 
