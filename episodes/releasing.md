@@ -451,6 +451,13 @@ The above instructions triggers a GitHub Actions workflow that automatically pub
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+::::::::::::::::::::::::::::::::::::: callout
+
+An alternative method of publishing to PyPI using API tokens is the use of [Trusted Publishers](https://docs.pypi.org/trusted-publishers/). Trusted Publishers is a security enhancement for automating the publishing of Python packages to PyPI, particularly from continuous integration systems like GitHub Action. Instead of relying on long-lived API tokens, Trusted Publishers uses the [OpenID Connect](https://www.microsoft.com/en-us/security/business/security-101/what-is-openid-connect-oidc) (OIDC) authentication protocol to authenticate and authorize CI/CD workflows, which creates a secure and token-less method for package uploads. When a trusted workflow runs, it generates short-lived OIDC tokens that PyPI verifies, and ensures that only authorised workflows from a specific repository or organisation can publish. Although this method is out the scope of this episode, we recommend you to read about the Trusted Publishers approach, and consider its advantages and disadvantages before applying it to your workflows.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ### Publishing to ORDA 
 
 
